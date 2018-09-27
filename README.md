@@ -180,6 +180,36 @@ I tried using `nginx` to proxy the websocket connection to port `4002` but was u
 ![config](http://i.imgur.com/ZhBMjiZ.png)
 The IBController should be automatically allowing external IPs, but I was not able to get that working in `v3.4.0`.
 
+## Trouble Shooting
+
+### Missing Xfonts
+
+You may get following error message (or similar) when you start the `IBController`,
+
+```bash
+xterm can not load font "-misc-fixed-medium-r-semicondensed ...
+```
+
+You need to install the fonts, here is the command for Ubuntu
+
+```bash
+sudo apt install xfonts-base
+```
+
+> You may need to find out the way for your Linux distribution
+
+### Missing libXi.so
+
+You may see the error message about missing `libXi.so.6` in the log file of `IBController`, just need to run
+
+```bash
+sudo apt install libxi-dev libxmu-dev
+```
+
+> You may need to find out the way for your Linux distribution
+
+
+
 ## Testing
 Using the [ib-sdk](https://github.com/triploc/ib-sdk):
 ```javascript
